@@ -1,0 +1,22 @@
+.h-scrollable {
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 2px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent; 
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #305e8a;
+        border-radius: 5px;
+        &:hover {
+            background: #305e8a;
+        }
+    }
+}
