@@ -31,6 +31,10 @@ composer require binarytorch/larecipe-swagger
 <larecipe-swagger endpoint="/api/v1/users"></larecipe-swagger>
 ```
 
+3. Test your API:
+
+![LaRecipe Screenshot](https://larecipe.binarytorch.com.my/images/packages/swagger-screenshot.png)
+
 #### See [full documentation](https://larecipe.binarytorch.com.my/docs)
 
 ## License
