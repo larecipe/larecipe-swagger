@@ -35,7 +35,19 @@ composer require binarytorch/larecipe-swagger
 
 ![LaRecipe Screenshot](https://larecipe.binarytorch.com.my/images/packages/swagger-screenshot.png)
 
-#### See [full documentation](https://larecipe.binarytorch.com.my/docs)
+3. Customize your component via props:
+
+| Prop | Type | Default | Example |
+| - | - | - | - |
+| `base-url` | String | The current location origin | https://example.com |
+| `endpoint` | String | - | /api/v1/users |
+| `default-headers` | Object | - | { 'Content-Type': 'application/json' } |
+| `default-params` | Object | - | { 'name': 'saleem' } |
+| `default-method` | String | get | get,post,put,patch,update,delete |
+| `has-common-headers` | Boolean | false | { 'Content-Type': 'application/json', 'Accept': 'application/json' } |
+| `has-auth-header` | Boolean | false | { 'Authorization': 'Bearer token_here' } |
+
+#### See [full larecipe documentation](https://larecipe.binarytorch.com.my/docs)
 
 ## License
 
