@@ -15,7 +15,7 @@
 
 **LaRecipe** is simply a code-driven package provides an easy way to create beautiful documentation for your product or application inside your Laravel app.
 
-![LaRecipe Screenshot](https://larecipe.binarytorch.com.my/images/packages/swagger.png)
+![LaRecipe Screenshot](https://larecipe.binarytorch.com.my/images/packages/swagger.png#)
 
 ## Getting Started
 
