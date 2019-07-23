@@ -1,6 +1,6 @@
 {
     "name": "binarytorch/larecipe-swagger",
-    "description": "A LaRecipe asset.",
+    "description": "Live API Testing Inside Your Documentation",
     "keywords": [
         "laravel",
         "larecipe"
