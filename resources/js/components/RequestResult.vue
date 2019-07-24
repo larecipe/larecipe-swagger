@@ -1,6 +1,14 @@
 <template>
     <div class="h-full relative overflow-hidden">
-        <h6 class="text-grey-darkest text-xl font-bold">Result</h6>
+        <div class="flex items-center">
+            <h6 class="text-grey-darkest text-xl font-bold">Result</h6>
+            <span v-if="status" 
+                class="rounded-lg font-bold text-white ml-2 px-1 py-1"
+                :class=statusColor>{{ status }}</span>
+            <span v-else
+                class="bg-grey rounded-lg font-bold text-white ml-2 px-1 py-1">Ready</span>
+        </div>
+
         <div class="border-l-2 border-t-2 bg-grey-lightest rounded p-4 mt-4 overflow-scroll" :style="{'height': height + 'px'}" id="request-result">
             <pre>
 {{ formatedData }}
@@ -11,10 +19,23 @@
 
 <script>
 export default {
-    props: ['data', 'height'],
+    props: ['response', 'height'],
     computed: {
         formatedData() {
-            return JSON.stringify(this.data, undefined, 2)
+            const { data } = this.response;
+
+            return JSON.stringify(data, undefined, 2)
+        },
+        status() {
+            const { status } = this.response;
+
+            return status
+        },
+        statusColor() {
+            const colors = {2: 'success', 3: 'warning', 4: 'danger', 5: 'danger'}
+            const statusStarting = Number(String(this.status).charAt(0));
+
+            return 'bg-' + colors[statusStarting];
         }
     }
 }

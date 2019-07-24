@@ -8,7 +8,7 @@
         </div>
         <div class="bg-blue-darker p-2 rounded-lg flex flex-wrap justify-start">
             <div class="w-1/2 px-6 py-4" :class="'request-panel-' + panelId">
-                <RequestUrl :url="fullUrl" />
+                <RequestUrl :url="fullUrl" @change="updateRequestUrl" />
                 <RequestMethods :defaultMethod="defaultMethod" @change="updateRequestMethod" />
                 <RequestHeaders :defaultHeaders="getDefaultHeaders" @change="updateRequestHeaders" />
                 <RequestParams :defaultParams="defaultParams" @change="updateRequestParams" />
@@ -16,7 +16,7 @@
             </div>
 
             <div class="w-1/2 p-8 bg-white rounded-lg">
-                <RequestResult :data="result" :height="resultHeight" />
+                <RequestResult :response="response" :height="resultHeight" />
             </div>
         </div>
     </div>
@@ -33,8 +33,14 @@ import RequestHeaders from './components/RequestHeaders';
 export default {
     name: 'larecipe-swagger',
     props: {
-        baseUrl: String, 
-        endpoint: String, 
+        baseUrl: {
+            type: String,
+            default: window.location.origin
+        }, 
+        endpoint: {
+            type: String,
+            default: '/'
+        }, 
         defaultHeaders: Object, 
         defaultParams: Object, 
         defaultMethod: String,
@@ -49,8 +55,9 @@ export default {
     },
     data() {
         return {
+            fullUrl: '',
             panelId: Date.now(),
-            result: 'Press the run button!',
+            response: {data: 'Press the run button!', status: null},
             resultHeight: 400,
             method: 'get',
             headers: {},
@@ -60,9 +67,6 @@ export default {
         }
     },
     computed: {
-        fullUrl() {
-            return this.getBaseUrl() + this.endpoint
-        },
         getDefaultHeaders() {
             return {
                 ...this.defaultHeaders ? this.defaultHeaders : {},
@@ -72,15 +76,11 @@ export default {
         },
     },
     methods: {
-        getBaseUrl() {
-            if(this.baseUrl) {
-                return this.baseUrl;
-            }
-
-            return window.location.origin
-        },
         updateResultPanelHeight() {
             this.resultHeight = $(".request-panel-" + this.panelId).height();
+        },
+        updateRequestUrl(url) {
+            this.fullUrl = url
         },
         updateRequestMethod(method) {
             this.method = method
@@ -100,9 +100,12 @@ export default {
                 call = axios[this.method](this.fullUrl, this.params, {headers: this.headers})
             }
 
-            call.then(response => this.result = response.data)
-                .catch(errors => this.result = errors.response.data)
+            call.then(response => this.response = response)
+                .catch(errors => this.response = errors.response)
         },
+    },
+    created() {
+        this.fullUrl = this.baseUrl + this.endpoint;
     },
     mounted() {
         this.updateResultPanelHeight();
