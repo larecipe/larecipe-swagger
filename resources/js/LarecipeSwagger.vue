@@ -94,7 +94,7 @@ export default {
         run() {
             let call = null
             
-            if(this.method == "get") {
+            if(["get", "delete"].includes(this.method)) {
                 call = axios[this.method](this.fullUrl, {params: this.params, headers: this.headers})
             }else {
                 call = axios[this.method](this.fullUrl, this.params, {headers: this.headers})
