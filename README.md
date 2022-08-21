@@ -1,5 +1,5 @@
 <h6 align="center">
-    <img src="https://larecipe.binarytorch.com.my/images/logo.svg"/>
+    <img src="https://larecipe.saleem.dev/images/logo.svg"/>
 </h6>
 
 <h2 align="center">
@@ -15,7 +15,7 @@
 
 **LaRecipe** is simply a code-driven package provides an easy way to create beautiful documentation for your product or application inside your Laravel app.
 
-![LaRecipe Screenshot](https://larecipe.binarytorch.com.my/images/packages/swagger.png#)
+![LaRecipe Screenshot](https://larecipe.saleem.dev/images/packages/swagger.png#)
 
 ## Getting Started
 
@@ -33,7 +33,7 @@ composer require binarytorch/larecipe-swagger
 
 3. Test your API:
 
-![LaRecipe Screenshot](https://larecipe.binarytorch.com.my/images/packages/swagger-screenshot.png)
+![LaRecipe Screenshot](https://larecipe.saleem.dev/images/packages/swagger-screenshot.png)
 
 3. Customize your component via props:
 
@@ -47,7 +47,7 @@ composer require binarytorch/larecipe-swagger
 | `has-common-headers` | Boolean | false | { 'Content-Type': 'application/json', 'Accept': 'application/json' } |
 | `has-auth-header` | Boolean | false | { 'Authorization': 'Bearer token_here' } |
 
-#### See [full larecipe documentation](https://larecipe.binarytorch.com.my/docs)
+#### See [full larecipe documentation](https://larecipe.saleem.dev/docs)
 
 ## License
 
